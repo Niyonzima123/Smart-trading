@@ -1,0 +1,16 @@
+<!-- core/templates/core/sell.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sell Product</title>
+</head>
+<body>
+    <h2>Sell Product</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Sell</button>
+    </form>
+    <p><a href="{% url 'dashboard' %}">Back to Dashboard</a></p>
+</body>
+</html>

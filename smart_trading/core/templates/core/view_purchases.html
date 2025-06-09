@@ -1,0 +1,31 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+    <h2>Purchase History</h2>
+    <table border="1">
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+            <th>Purchase Price</th>
+            <th>Expected Selling Price</th>
+            <th>Purchase Date</th>
+            <th>Return Date</th>
+        </tr>
+        {% for p in purchases %}
+        <tr>
+            <td>{{ p.product.name }}</td>
+            <td>{{ p.quantity }}</td>
+            <td>{{ p.unit }}</td>
+            <td>{{ p.purchase_price }}</td>
+            <td>{{ p.expected_selling_price }}</td>
+            <td>{{ p.purchase_date }}</td>
+            <td>{{ p.return_date }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7">No purchases found.</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

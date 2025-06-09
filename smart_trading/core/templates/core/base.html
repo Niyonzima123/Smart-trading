@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Trading System</title>
+</head>
+<body>
+    <nav>
+    <a href="{% url 'dashboard' %}">🏠 Dashboard</a> |
+    <a href="{% url 'add_product' %}">➕ Add Product</a> |
+    <a href="{% url 'purchase_product' %}">📦 Purchase Product</a> |
+    <a href="{% url 'view_purchases' %}">📄 View Purchases</a> |
+    {% if user.is_authenticated %}
+    <form action="{% url 'logout' %}" method="post" style="display: inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Logout</button>
+</form>
+        
+    {% endif %}
+
+
+</nav>
+
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+    <h1>Welcome to Smart Trading System</h1>
+    <p>Track your inventory, purchases, and sales efficiently.</p>
+
+    <h3>Stock Overview</h3>
+    <ul>
+        {% for product in products %}
+            <li>{{ product.name }} - {{ product.quantity }} {{ product.unit }}</li>
+        {% empty %}
+            <li>No products available.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
